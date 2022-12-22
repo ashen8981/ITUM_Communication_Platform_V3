@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:itum_communication_platform/helper/helper_function.dart';
 import 'package:itum_communication_platform/pages/auth/Login_Page.dart';
 import 'package:itum_communication_platform/pages/groups/groups_home_page.dart';
+import 'package:itum_communication_platform/pages/polls/polls_home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,10 +40,16 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: _isSignedIn ? GroupHome() : LoginPage(),
+    return MultiProvider(
+      providers:[
+        ChangeNotifierProvider(create: (context) => DbProvider()),
+      ],
+      child:MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: _isSignedIn ? GroupHome() : LoginPage(),
+      ),
     );
   }
 }
+
 
