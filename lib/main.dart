@@ -4,6 +4,7 @@ import 'package:itum_communication_platform/helper/helper_function.dart';
 import 'package:itum_communication_platform/pages/auth/Login_Page.dart';
 import 'package:itum_communication_platform/pages/groups/groups_home_page.dart';
 import 'package:itum_communication_platform/pages/polls/polls_home_page.dart';
+import 'package:itum_communication_platform/pages/polls/polls_view.dart';
 import 'package:provider/provider.dart';
 
 void main() async{
@@ -43,6 +44,7 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers:[
         ChangeNotifierProvider(create: (context) => DbProvider()),
+        ChangeNotifierProvider(create: (context) => FetchPollsProvider()),
       ],
       child:MaterialApp(
         debugShowCheckedModeBanner: false,
