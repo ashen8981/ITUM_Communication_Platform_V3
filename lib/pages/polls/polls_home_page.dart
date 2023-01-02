@@ -262,17 +262,6 @@ class DbProvider extends ChangeNotifier {
       _status = false;
       notifyListeners();
 
-      // ///options
-      // List options = pollData["poll"]["options"];
-      // for (var i in options) {
-      //   if (i["answer"] == seletedOptions) {
-      //     i["percent"]++;
-      //   } else {
-      //     if (i["percent"] > 0) {
-      //       i["percent"]--;
-      //     }
-      //   }
-      // }
 
     } on FirebaseException catch (e) {
       _message = e.message!;
